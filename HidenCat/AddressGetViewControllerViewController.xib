@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressGetViewControllerViewController">
+            <connections>
+                <outlet property="tableView" destination="FQN-w7-yXH" id="S2w-kF-hK4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FQN-w7-yXH">
+                    <rect key="frame" x="0.0" y="10" width="320" height="508"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="t3L-Rq-JBk"/>
+                        <outlet property="delegate" destination="-1" id="piu-Y7-Sfx"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06j-lC-XPR">
+                    <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VM8-Eb-3ON">
+                            <rect key="frame" x="94" y="4.5" width="133" height="40"/>
+                            <color key="backgroundColor" red="1" green="0.29803921570000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="2Bc-Hw-qxH"/>
+                                <constraint firstAttribute="width" constant="133" id="c3x-Jc-WsH"/>
+                            </constraints>
+                            <state key="normal">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="+">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="PingFangSC-Semibold"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="添加收货地址">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="19" name="PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </state>
+                            <connections>
+                                <action selector="addAdressClick:" destination="-1" eventType="touchUpInside" id="Qdo-SN-ADs"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.29803921570000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="VM8-Eb-3ON" firstAttribute="centerX" secondItem="06j-lC-XPR" secondAttribute="centerX" id="Ygq-eb-BmR"/>
+                        <constraint firstItem="VM8-Eb-3ON" firstAttribute="centerY" secondItem="06j-lC-XPR" secondAttribute="centerY" id="xeX-Ir-F1f"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="06j-lC-XPR" firstAttribute="top" secondItem="FQN-w7-yXH" secondAttribute="bottom" id="0hr-2k-Czg"/>
+                <constraint firstItem="FQN-w7-yXH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="3Xr-8g-Amj"/>
+                <constraint firstAttribute="bottom" secondItem="FQN-w7-yXH" secondAttribute="bottom" constant="50" id="Ch4-y9-AdB"/>
+                <constraint firstItem="06j-lC-XPR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mkf-1i-ij1"/>
+                <constraint firstAttribute="bottom" secondItem="06j-lC-XPR" secondAttribute="bottom" id="OP5-Jn-uia"/>
+                <constraint firstAttribute="trailing" secondItem="06j-lC-XPR" secondAttribute="trailing" id="WKP-Ko-J0e"/>
+                <constraint firstAttribute="trailing" secondItem="FQN-w7-yXH" secondAttribute="trailing" id="ehq-S7-TZU"/>
+                <constraint firstItem="FQN-w7-yXH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kvU-o0-3Nl"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="194" y="307"/>
+        </view>
+    </objects>
+</document>

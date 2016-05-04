@@ -1,0 +1,26 @@
+//
+//  XDHeader.pch
+//  HidenCat
+//
+//  Created by XiaDian on 16/3/22.
+//  Copyright © 2016年 vdchina. All rights reserved.
+//
+
+#ifndef XDHeader_pch
+#define XDHeader_pch
+#ifdef __OBJC__
+#import "TextChecker.h"
+#import "ProgressHUD.h"
+#import <UIImageView+WebCache.h>
+#import <pop/POP.h>
+#import <MJRefresh/MJRefresh.h>
+#import "UIImage+XDUIImage_giveMeStr.h"
+#import <UIButton+WebCache.h>
+#define XDREDColor [UIColor colorWithRed:255/255.0 green:75/255.0 blue:76/255.0 alpha:1]
+#define XDSW  [UIScreen mainScreen].bounds.size.width
+#define XDSH   [UIScreen mainScreen].bounds.size.height
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <UIImage+MultiFormat.h>
+#endif
+#endif /* XDHeader_pch */

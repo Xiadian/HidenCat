@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BigManCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="258" height="245"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="258" height="245"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v7f-sk-IWT">
+                        <rect key="frame" x="0.0" y="0.0" width="258" height="245"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="v7f-sk-IWT" secondAttribute="bottom" id="9op-OA-YhK"/>
+                <constraint firstItem="v7f-sk-IWT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="d35-4a-BiO"/>
+                <constraint firstItem="v7f-sk-IWT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="r1H-6V-A6y"/>
+                <constraint firstAttribute="trailing" secondItem="v7f-sk-IWT" secondAttribute="trailing" id="zcW-tU-IHa"/>
+            </constraints>
+            <size key="customSize" width="258" height="245"/>
+            <connections>
+                <outlet property="imgView" destination="v7f-sk-IWT" id="B8z-KI-gHH"/>
+            </connections>
+            <point key="canvasLocation" x="71" y="10.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

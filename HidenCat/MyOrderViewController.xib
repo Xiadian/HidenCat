@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyOrderViewController">
+            <connections>
+                <outlet property="myBuyLB" destination="rna-fB-3MU" id="zMU-Zg-M3u"/>
+                <outlet property="mySaleLB" destination="yFe-jB-S1e" id="nOh-ta-rAp"/>
+                <outlet property="myScrollView" destination="tD0-q3-Jyd" id="dAX-nC-OVy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0h-Sj-anh">
+                    <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我卖的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFe-jB-S1e">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我买的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rna-fB-3MU">
+                            <rect key="frame" x="160" y="0.0" width="160" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="rna-fB-3MU" firstAttribute="top" secondItem="P0h-Sj-anh" secondAttribute="top" id="0Cs-0i-EfV"/>
+                        <constraint firstAttribute="bottom" secondItem="yFe-jB-S1e" secondAttribute="bottom" id="7Ti-wD-K0r"/>
+                        <constraint firstItem="rna-fB-3MU" firstAttribute="leading" secondItem="yFe-jB-S1e" secondAttribute="trailing" id="DJS-Eh-JSy"/>
+                        <constraint firstItem="yFe-jB-S1e" firstAttribute="top" secondItem="P0h-Sj-anh" secondAttribute="top" id="I9P-NT-oTx"/>
+                        <constraint firstAttribute="trailing" secondItem="rna-fB-3MU" secondAttribute="trailing" id="Pw0-MN-bhl"/>
+                        <constraint firstAttribute="bottom" secondItem="rna-fB-3MU" secondAttribute="bottom" id="VTQ-ak-Nfj"/>
+                        <constraint firstAttribute="height" constant="50" id="bUZ-V2-ua4"/>
+                        <constraint firstItem="yFe-jB-S1e" firstAttribute="leading" secondItem="P0h-Sj-anh" secondAttribute="leading" id="caJ-9F-21v"/>
+                        <constraint firstItem="yFe-jB-S1e" firstAttribute="width" secondItem="P0h-Sj-anh" secondAttribute="width" multiplier="0.5" id="kYW-PS-Wna"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tD0-q3-Jyd">
+                    <rect key="frame" x="0.0" y="124" width="320" height="444"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tD0-q3-Jyd" secondAttribute="bottom" id="2Se-Wh-1aT"/>
+                <constraint firstAttribute="bottom" secondItem="P0h-Sj-anh" secondAttribute="bottom" constant="60" id="Dlz-sN-fVI"/>
+                <constraint firstAttribute="trailing" secondItem="tD0-q3-Jyd" secondAttribute="trailing" id="Hhf-X3-jYR"/>
+                <constraint firstItem="P0h-Sj-anh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ies-qQ-DS2"/>
+                <constraint firstAttribute="trailing" secondItem="P0h-Sj-anh" secondAttribute="trailing" id="JH8-Qd-NXY"/>
+                <constraint firstItem="P0h-Sj-anh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Sjq-dj-w1u"/>
+                <constraint firstItem="tD0-q3-Jyd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b5p-5O-bkE"/>
+                <constraint firstItem="tD0-q3-Jyd" firstAttribute="top" secondItem="P0h-Sj-anh" secondAttribute="bottom" constant="10" id="naB-5v-h7b"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Dlz-sN-fVI"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="295" y="350"/>
+        </view>
+    </objects>
+</document>

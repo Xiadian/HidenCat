@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="96" id="KGk-i7-Jjw" customClass="MineFirstTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apk-3A-17y">
+                        <rect key="frame" x="13" y="13" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="cIn-gf-LWZ"/>
+                            <constraint firstAttribute="width" constant="70" id="w7c-SS-Uq5"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="find_headeimg"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="188****2313" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibs-CI-6iY">
+                        <rect key="frame" x="91" y="45" width="150" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="Xco-wM-tuQ"/>
+                            <constraint firstAttribute="height" constant="21" id="fjo-1y-4Rx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsJ-3V-jNJ">
+                        <rect key="frame" x="249" y="35" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="82J-rf-yPG"/>
+                            <constraint firstAttribute="height" constant="30" id="KNk-Go-3lI"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="erweima"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爱生活爱古玩爱自己" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="js3-3q-E3S">
+                        <rect key="frame" x="88" y="70" width="156" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="156" id="74R-xs-Eka"/>
+                            <constraint firstAttribute="height" constant="20" id="Qz5-T5-Wqu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小猫咪v1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et6-ec-JUd">
+                        <rect key="frame" x="91" y="18" width="67.5" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="gsL-lL-kdU"/>
+                            <constraint firstAttribute="width" constant="100" id="xDc-PY-xZm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="xDc-PY-xZm"/>
+                            </mask>
+                        </variation>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ibs-CI-6iY" firstAttribute="top" secondItem="et6-ec-JUd" secondAttribute="bottom" constant="2" id="0Dm-yD-toA"/>
+                    <constraint firstItem="lsJ-3V-jNJ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="BYC-TA-G4u"/>
+                    <constraint firstItem="apk-3A-17y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Fsl-wo-NHu"/>
+                    <constraint firstItem="js3-3q-E3S" firstAttribute="leading" secondItem="apk-3A-17y" secondAttribute="trailing" constant="5" id="Kf1-pv-oD6"/>
+                    <constraint firstItem="Ibs-CI-6iY" firstAttribute="leading" secondItem="apk-3A-17y" secondAttribute="trailing" constant="8" id="LJu-1U-waq"/>
+                    <constraint firstItem="apk-3A-17y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Uxf-b3-TF9"/>
+                    <constraint firstItem="js3-3q-E3S" firstAttribute="top" secondItem="Ibs-CI-6iY" secondAttribute="bottom" constant="4" id="Zjg-W0-mJp"/>
+                    <constraint firstItem="et6-ec-JUd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="ZxO-Bs-e35"/>
+                    <constraint firstItem="lsJ-3V-jNJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gOH-LC-E3D"/>
+                    <constraint firstItem="et6-ec-JUd" firstAttribute="leading" secondItem="apk-3A-17y" secondAttribute="trailing" constant="8" id="k2w-dc-TdY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="45" y="253"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="erweima" width="37" height="40"/>
+        <image name="find_headeimg" width="81" height="71"/>
+    </resources>
+</document>
