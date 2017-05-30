@@ -10,16 +10,19 @@
 #import "FindTableViewCell.h"
 #import "XDPlayView.h"
 #import "DetailViewController.h"
+#import "XDMoviePlayerController.h"
 #import <MediaPlayer/MediaPlayer.h>
 @interface FindViewController ()<UITableViewDataSource,UITableViewDelegate,XDPlayDelegate>
 {
-    MPMoviePlayerController *_player;
+     XDMoviePlayerController *_player;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong)NSArray *vidieoArr;
 @property(nonatomic,strong)NSArray *nameArr;
 @property(nonatomic,strong)NSArray *picArr;
 @property(nonatomic,strong)NSArray *iconPicArr;
+@property(nonatomic,assign)BOOL fouces;
+
 @end
 
 @implementation FindViewController
@@ -27,17 +30,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self config];
-    [self.tabBarController.tabBar addObserver:self forKeyPath:@"selectedItem" options:NSKeyValueObservingOptionNew context:nil];
-}
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    if (_player) {
-        [self stopPlay];
-    }
+ 
 }
 //基本配置
 -(void)config{
     self.navigationItem.title=@"发现";
     [self.tableView registerNib:[UINib nibWithNibName:@"FindTableViewCell" bundle:nil] forCellReuseIdentifier:@"xd"];
+    [self.tabBarController.tabBar addObserver:self forKeyPath:@"selectedItem" options:NSKeyValueObservingOptionNew context:nil];
     self.picArr=@[@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan1.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan6.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan2.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan3.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan4.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan3.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan2.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan1.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan3.jpg",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan4.jpg"];
     self.vidieoArr=@[@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoQQ20160314112239.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaocangmaomao_video.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoQQ20160314112222.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoimg7910.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoimg7909.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoimg7907.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoQQ20160314112222.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoQQ20160314112239.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoimg7907.mp4",@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoimg7909.mp4"];
     self.nameArr=@[@"小喵喵",@"夏天",@"爱丽丝",@"腾格尔",@"史密斯",@"爱丽丝",@"腾格尔",@"史密斯",@"腾格尔",@"史密斯"];
@@ -54,9 +53,10 @@
 
     
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    if (_player.player) {
+        [_player stopPlay];
+    }
 }
 #pragma mark -tableview代理
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -93,70 +93,30 @@
 -(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     FindTableViewCell *cellone=(id)cell;
     for (UIView *view in cellone.playView.subviews) {
-        if (view==_player.view) {
-            [self stopPlay];
-
+        if (view==_player.player.view) {
+            [_player stopPlay];
         }
     }
 }
 #pragma mark 发现页view的代理方法
 -(void)pushTodetail{
-    if (_player) {
-        [self stopPlay];
+    if (_player.player) {
+        [_player stopPlay];
     }
     DetailViewController *dv=[[DetailViewController alloc]init];
     dv.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:dv animated:YES];
 }
+-(void)focusOn:(UIButton *)btn{
+    self.fouces=!self.fouces;
+    self.fouces?[btn setTitle:@"已关注" forState:UIControlStateNormal]:[btn setTitle:@"+关注" forState:UIControlStateNormal];
+}
 -(void)playVideoWithIN:(FindTableViewCell *)cell{
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    if (_player) {
-        [self stopPlay];
-
-        NSIndexPath *indexPath=[self.tableView indexPathForCell:cell];
-        NSURL  *url = [NSURL URLWithString:self.vidieoArr[indexPath.row]];
-        _player=[[MPMoviePlayerController alloc]initWithContentURL:url];
-        _player.controlStyle=MPMovieControlStyleDefault;
-        _player.scalingMode=MPMovieScalingModeFill;
-        _player.view.frame=CGRectMake(0, 0, cell.playView.bounds.size.width, cell.playView.bounds.size.height);
-        [cell.playView addSubview:_player.view];
-        [_player prepareToPlay];
-        [_player play];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(listenUp) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    if (_player.player) {
+        [_player stopPlay];
     }
-    else{
-        NSIndexPath *indexPath=[self.tableView indexPathForCell:cell];
-        NSURL  *url = [NSURL URLWithString:self.vidieoArr[indexPath.row]];
-        _player=[[MPMoviePlayerController alloc]initWithContentURL:url];
-        _player.controlStyle=MPMovieControlStyleDefault;
-        _player.scalingMode=MPMovieScalingModeFill;
-        _player.view.frame=CGRectMake(0, 0, cell.playView.bounds.size.width, cell.playView.bounds.size.height);
-        [cell.playView addSubview:_player.view];
-        [_player prepareToPlay];
-        [_player play];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(listenUp) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    }
+    NSIndexPath *indexPath=[self.tableView indexPathForCell:cell];
+    _player=[[XDMoviePlayerController alloc]initGetVidieoWithUrl:self.vidieoArr[indexPath.row] andContentView:cell.playView andContentCGrect:CGRectMake(0, 0, cell.playView.bounds.size.width, cell.playView.bounds.size.height)];
+    [_player StarPlay];
 }
-//视频播放结束通知
--(void)listenUp{
-    if (_player) {
-        [self stopPlay];
-    }
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-}
--(void)stopPlay{
-    
-        [_player pause];
-        [_player.view removeFromSuperview];
-        _player=nil;
-}
-#pragma mark 页面生命方法
-//-(void)viewWillDisappear:(BOOL)animated{
-//
-//    [super viewWillDisappear:animated];
-//    if (_player) {
-//        [self stopPlay];
-//
-//    }
-//}
 @end

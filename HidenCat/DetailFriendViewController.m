@@ -12,9 +12,13 @@
 #import "DetailViewController.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
-@interface DetailFriendViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface DetailFriendViewController ()<UITableViewDataSource,UITableViewDelegate,DetailFriendHeadViewDelegate>
+@property(nonatomic,strong)DetailFriendHeadView *dfView;
+@property(nonatomic,assign)BOOL fouces;
+
 @end
 @implementation DetailFriendViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -28,6 +32,7 @@
     self.tableView.showsVerticalScrollIndicator=NO;
     self.tableView.backgroundColor=XDREDColor;
     self.tableView.bounces=NO;
+    self.fouces=NO;
     self.tableView.tableHeaderView=[self getTopView];
     UIBarButtonItem *btnBack=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"0324c_11"] style:UIBarButtonItemStylePlain target:self action:@selector(share)];
     btnBack.imageInsets=UIEdgeInsetsMake(8, 8, 8, 8);
@@ -39,7 +44,6 @@
   //  NSArray* imageArray = @[[UIImage imageNamed:@"shareImg.png"]];
    // （注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
     //if (imageArray) {
-        
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
         [shareParams SSDKSetupShareParamsByText:@"分享内容"
                                          images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]
@@ -52,24 +56,24 @@
                            shareParams:shareParams
                    onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
                        
-                       switch (state) {
-                           case SSDKResponseStateSuccess:
-                           {
-                               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
-                                                                                   message:nil
-                                                                                  delegate:nil
-                                                                         cancelButtonTitle:@"确定"
-                                                                         otherButtonTitles:nil];
-                               [alertView show];
-                               break;
-                           }
-                           case SSDKResponseStateFail:
-                           {
-                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
-                                                                               message:[NSString stringWithFormat:@"%@",error]
-                                                                              delegate:nil
-                                                                     cancelButtonTitle:@"OK"
-                                                                     otherButtonTitles:nil, nil];
+    switch (state) {
+            case SSDKResponseStateSuccess:
+        {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                     message:nil
+                                                    delegate:nil
+                                                    cancelButtonTitle:@"确定"
+                                                    otherButtonTitles:nil];
+            [alertView show];
+            break;
+        }
+        case SSDKResponseStateFail:
+        {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                             message:[NSString stringWithFormat:@"%@",error]
+                             delegate:nil
+                             cancelButtonTitle:@"OK"
+                             otherButtonTitles:nil, nil];
                                [alert show];
                                break;
                            }
@@ -84,15 +88,22 @@
     UIView *vv=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,150)];
     vv.backgroundColor=XDREDColor;
     NSArray *arr=[[NSBundle mainBundle]loadNibNamed:@"DetailFriendHeadView" owner:self options:nil];
-    DetailFriendHeadView *cc=arr[0];    
-    cc.iconBtn.layer.cornerRadius=50;
-    cc.iconBtn.clipsToBounds=YES;
-    cc.starBtn.layer.cornerRadius=8;
-    cc.starBtn.clipsToBounds=YES;
-    cc.frame=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,150);
-    [vv addSubview:cc];
+    _dfView=arr[0];
+    _dfView.delegate=self;
+    _dfView.iconBtn.layer.cornerRadius=50;
+    _dfView.iconBtn.clipsToBounds=YES;
+    _dfView.starBtn.layer.cornerRadius=8;
+    _dfView.starBtn.clipsToBounds=YES;
+    _dfView.frame=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,150);
+    [vv addSubview:_dfView];
     return vv;
 }
+-(void)foucousClick:(UIButton *)btn{
+    self.fouces=!self.fouces;
+    self.fouces?[_dfView.starBtn setTitle:@"已关注" forState:UIControlStateNormal]:[_dfView.starBtn setTitle:@"+关注" forState:UIControlStateNormal];
+
+}
+#pragma mark tableView代理方法
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailFriendTableViewCell *db=[tableView dequeueReusableCellWithIdentifier:@"xd" forIndexPath:indexPath];
     [db.image sd_setImageWithURL:[NSURL URLWithString:@"http://7xrze4.com1.z0.glb.clouddn.com/CangMaoMaoyulan4.jpg"]];
@@ -110,9 +121,7 @@
     dv.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:dv animated:YES];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+#pragma mark 页面生命周期方法
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
 }

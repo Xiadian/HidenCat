@@ -8,6 +8,7 @@
 //
 
 #import "RecordViewController.h"
+#import "NewPlayViewController.h"
 @interface RecordViewController ()
 @end
 @implementation RecordViewController
@@ -17,7 +18,6 @@
     self.view.backgroundColor=[UIColor whiteColor];
     // Do any additional setup after loading the view from its nib.
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -26,5 +26,10 @@
     [super viewWillAppear:YES];
     self.navigationController.navigationBar.hidden=NO;
     self.navigationItem.title=@"我的发布";
+}
+- (IBAction)newPlay:(UIButton *)sender {
+    NewPlayViewController *nv=[[NewPlayViewController alloc]init];
+    [self.navigationController pushViewController:nv animated:YES];
+    
 }
 @end

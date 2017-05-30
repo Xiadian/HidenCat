@@ -35,9 +35,8 @@
     self.tableView.tableHeaderView=aa;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"xd"];
 }
-
+#pragma mark tableView代理方法
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     return 60;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -62,7 +61,6 @@
     return cell;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
     return 3;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -70,7 +68,7 @@
     switch (indexPath.row) {
         case 0:
         {
-            MyMenuViewController *mc=[MyMenuViewController alloc];
+             MyMenuViewController *mc=[MyMenuViewController alloc];
             [self.navigationController pushViewController:mc animated:YES];
         }
             break;
@@ -86,10 +84,6 @@
             break;
     }
 
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 /*
 #pragma mark - Navigation

@@ -48,7 +48,6 @@
 + (void)authorize:(SSDKPlatformType)platformType
          settings:(NSDictionary *)settings
    onStateChanged:(SSDKAuthorizeStateChangedHandler)stateChangedHandler;
-
 /**
  *  判断分享平台是否授权
  *
@@ -63,7 +62,6 @@
  *  @param platformType  平台类型
  */
 + (void)cancelAuthorize:(SSDKPlatformType)platformType;
-
 #pragma mark - 用户
 
 /**
@@ -74,7 +72,6 @@
  */
 + (void)getUserInfo:(SSDKPlatformType)platformType
      onStateChanged:(SSDKGetUserStateChangedHandler)stateChangedHandler;
-
 /**
  *  获取用户信息
  *
@@ -85,7 +82,6 @@
 + (void)getUserInfo:(SSDKPlatformType)platformType
         conditional:(SSDKUserQueryConditional *)conditional
      onStateChanged:(SSDKGetUserStateChangedHandler)stateChangedHandler;
-
 /**
  *  添加/关注好友
  *
@@ -96,7 +92,6 @@
 + (void)addFriend:(SSDKPlatformType)platformType
              user:(SSDKUser *)user
    onStateChanged:(SSDKAddFriendStateChangedHandler)stateChangedHandler;
-
 /**
  *  获取好友列表
  *
@@ -109,9 +104,7 @@
             cursor:(NSUInteger)cursor
               size:(NSUInteger)size
     onStateChanged:(SSDKGetFriendsStateChangedHandler)stateChangedHandler;
-
 #pragma mark - 分享
-
 /**
  *  分享内容
  *

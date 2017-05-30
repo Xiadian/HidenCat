@@ -108,22 +108,18 @@ typedef NS_ENUM(NSUInteger, SSDKGender){
  *  注册时间
  */
 @property (nonatomic) NSTimeInterval regAt;
-
 /**
  *  用户等级
  */
 @property (nonatomic) NSInteger level;
-
 /**
  *  教育信息
  */
 @property (nonatomic, retain) NSArray *educations;
-
 /**
  *  职业信息
  */
 @property (nonatomic, retain) NSArray *works;
-
 /**
  *  原始数据
  */

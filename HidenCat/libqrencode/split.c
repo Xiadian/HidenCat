@@ -109,10 +109,10 @@ static int Split_eatNum(const char *string, QRinput *input,QRencodeMode hint)
 static int Split_eatAn(const char *string, QRinput *input, QRencodeMode hint)
 {
 	const char *p, *q;
-	int ret;
-	int run;
-	int dif;
-	int la, ln;
+	long  int ret;
+	long int run;
+	long int dif;
+	long int la, ln;
 
 	la = QRspec_lengthIndicator(QR_MODE_AN, input->version);
 	ln = QRspec_lengthIndicator(QR_MODE_NUM, input->version);

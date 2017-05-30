@@ -16,6 +16,7 @@
     self.foucusClick.clipsToBounds=YES;
     self.iconView.layer.cornerRadius=25;
     self.iconView.clipsToBounds=YES;
+    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

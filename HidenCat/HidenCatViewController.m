@@ -18,10 +18,7 @@
 @property(nonatomic,strong)UIButton *btnRight;
 @property(nonatomic,strong)UIButton *btn;
 @property(nonatomic,assign)BOOL isNextPage;
-
-
 @end
-
 @implementation HidenCatViewController
 
 - (void)viewDidLoad {

@@ -127,7 +127,7 @@
 }
 //评论
 -(void)comment:(UIButton *)sender{
-    CommentViewController *cv=[CommentViewController alloc];
+    CommentViewController *cv=[[CommentViewController alloc]init];
     [self.navigationController pushViewController:cv animated:YES];
 
 }
@@ -200,6 +200,8 @@
 #pragma mark tableView代理方法
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CommentViewController *cv=[[CommentViewController alloc]init];
+    [self.navigationController pushViewController:cv animated:YES];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 4;

@@ -13,9 +13,7 @@
 @property(nonatomic,assign)NSInteger week;
 @property(nonatomic,strong)NSArray *weekArr;
 @end
-
 @implementation MyMenuViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getTime];
@@ -53,7 +51,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MyMenuViewTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"xd" forIndexPath:indexPath];
-    cell.weekLab.text= [self.weekArr objectAtIndex:_week-indexPath.row-1];
+  //  cell.weekLab.text= [self.weekArr objectAtIndex:_week-indexPath.section-1];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -70,8 +68,9 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view=[[UIView alloc]init];
+    
     view.backgroundColor=[UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1];
-    view.bounds=CGRectMake(0, 0, XDSW, 40);
+    view.bounds=CGRectMake(0, 0, XDSW, 60);
     UILabel *lab=[[UILabel alloc]initWithFrame:CGRectMake(5, 5, XDSW, 30)];
     [view addSubview:lab];
     switch (section) {

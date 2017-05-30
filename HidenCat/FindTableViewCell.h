@@ -11,8 +11,10 @@
 @protocol XDPlayDelegate<NSObject>
 -(void)playVideoWithIN:(UITableViewCell *)cell;
 -(void)pushTodetail;
+-(void)focusOn:(UIButton *)btn;
 @end
 @interface FindTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *focusBtn;
 @property (weak, nonatomic) IBOutlet UIButton *iconBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *label;

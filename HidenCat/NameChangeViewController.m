@@ -27,7 +27,7 @@
     self.textField.text=self.name;
 }
 -(void)dd{
-      self.nameBlock(self.textField.text);
+     self.nameBlock(self.textField.text);
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

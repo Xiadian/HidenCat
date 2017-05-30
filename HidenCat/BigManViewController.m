@@ -13,7 +13,6 @@
 #import "BigManCollectionViewCell.h"
 @interface BigManViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIButton *secBtn;
-
 @property (weak, nonatomic) IBOutlet UIButton *firstBtn;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(nonatomic,strong)NSArray *bigManArr;
@@ -26,11 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      [self config];
-    [self getData];
-    self.isLeft=YES;
+     [self getData];
+     self.isLeft=YES;
     // Do any additional setup after loading the view.
 }
-//死数据
+//模型数据
 -(void)getData{
     self.bigManArr=@[@"square_girl5.jpg",@"square_girl2.jpg",@"square_girl7.png",@"square_girl8.png",@"square_girl9.png",@"square_girl10.jpg"];
     self.superManArr=@[@"square_girl1.png",@"square_girl2.jpg",@"square_girl3.png",@"square_girl4.jpg",@"square_girl5.jpg",@"square_girl6.png"];
@@ -140,8 +139,8 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
     CATransition *tra=[CATransition animation];
-    tra.duration=0.8f;
-    tra.type=@"rippleEffect";
+    tra.duration=0.1f;
+    tra.type=@"fade";
     [cell.layer addAnimation:tra forKey:nil];
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

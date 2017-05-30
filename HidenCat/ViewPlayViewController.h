@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *saleNoForYes;
 @property (weak, nonatomic) IBOutlet UIView *saleView;
 @property (weak, nonatomic) IBOutlet UIScrollView *midScrollView;
-
+@property (weak, nonatomic) IBOutlet UITextField *titleText;
+@property (weak, nonatomic) IBOutlet UITextView *contentText;
+@property(nonatomic,strong)UIImage *img;
 @end

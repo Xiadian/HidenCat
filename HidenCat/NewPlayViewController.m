@@ -10,13 +10,18 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "HidenCatView.h"
+#import "XDGetFilePath.h"
 #import "ViewPlayViewController.h"
 @interface NewPlayViewController ()<AVCaptureFileOutputRecordingDelegate,HidenCatDelegate>
 @property(strong,nonatomic)AVCaptureMovieFileOutput *output;
 @property(strong,nonatomic)UIView *top;
+@property(strong,nonatomic)UIImage *ScreenImg;
+@property(strong,nonatomic)NSString *vidioPath;
+
 @property(assign,nonatomic)NSInteger second;
 @property (strong,nonatomic) AVCaptureSession *captureSession;//负责输入和输出设备之间的数据传递
 @property (strong,nonatomic) AVCaptureDeviceInput *captureDeviceInput;//负责从AVCaptureDevice获得输入数据
+@property(nonatomic,strong)UIView *backView;
 @property (strong,nonatomic) AVCaptureStillImageOutput *captureStillImageOutput;//照片输出流
 @property (strong,nonatomic) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;//相机拍摄预览图层
 @end
@@ -77,35 +82,46 @@
     }
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"myVidio.mp4"];
     NSURL *url = [NSURL fileURLWithPath:path];
+    self.vidioPath=path;
     [self.output startRecordingToOutputFileURL:url recordingDelegate:self];
     [UIView animateWithDuration:8 animations:^{
         self.top.frame=CGRectMake(0,0,XDSW,50);
     } completion:^(BOOL finished) {
         if (self.navigationController.viewControllers.count==2) {
+            UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, XDSW, XDSH)];
+            view.backgroundColor=[[UIColor blackColor]colorWithAlphaComponent:0.6];
+            view.userInteractionEnabled=NO;
+            [self.view addSubview:view];
+            [ProgressHUD show:@"正在合成视频..."];
              [self.output stopRecording];
-            ViewPlayViewController *vv=[[ViewPlayViewController alloc]init];
-            [self.navigationController pushViewController:vv animated:YES];
         }
     }];
 }
-
 -(void)saveEnd:(UIButton *)btn{
-    NSLog(@"松手%d",[self.output isRecording]);
+   // NSLog(@"松手%d",[self.output isRecording]);
+    self.backView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, XDSW, XDSH)];
+     self.backView.backgroundColor=[[UIColor blackColor]colorWithAlphaComponent:0.6];
+     self.backView.userInteractionEnabled=NO;
+    [self.view addSubview: self.backView];
+    [ProgressHUD show:@"正在合成视频..."];
     self.top.frame=CGRectMake(0,0,0,50);
-    ViewPlayViewController *vv=[[ViewPlayViewController alloc]init];
-    [self.navigationController pushViewController:vv animated:YES];
     [self.output stopRecording];
 }
 //拍摄完成回调
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error{
-    NSLog(@"录制完成");
     ALAssetsLibrary *assetsLibrary=[[ALAssetsLibrary alloc]init];
-    
-    [assetsLibrary writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:^(NSURL *assetURL, NSError *error) {
+       [assetsLibrary writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:^(NSURL *assetURL, NSError *error) {
         if (error) {
-            NSLog(@"保存视频到相簿过程中发生错误，错误信息：%@",error.localizedDescription);
+           // NSLog(@"保存视频到相簿过程中发生错误，错误信息：%@",error.localizedDescription);
         }else{
-            NSLog(@"成功保存视频到相簿.");}
+            [self.backView removeFromSuperview];
+            [ProgressHUD dismiss];
+            UIImage * image=[XDGetFilePath getVideoThumbnailWithFilePath:self.vidioPath];
+            ViewPlayViewController *vv=[[ViewPlayViewController alloc]init];
+            vv.img=image;
+            [self.navigationController pushViewController:vv animated:YES];
+          //  NSLog(@"成功保存视频到相簿.");
+        }
     }];
 }
 

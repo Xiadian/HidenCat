@@ -8,7 +8,7 @@
 
 #import "CommentViewController.h"
 #import "DetailTableViewCell.h"
-@interface CommentViewController ()
+@interface CommentViewController ()<UITextViewDelegate>
 @end
 @implementation CommentViewController
 - (void)viewDidLoad {
@@ -18,10 +18,10 @@
     }
 -(void)config{
     self.navigationItem.title=@"评论";
-
+    self.commentTextField.delegate=self;
     self.sendBtn.layer.cornerRadius=5;
     self.sendBtn.clipsToBounds=YES;
-    
+    self.commentTextField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"xd"];
 }
 -(void)keyBoardConfig{
@@ -45,7 +45,7 @@
         } completion:nil];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.commetTextField  resignFirstResponder];
+    [self.commentTextField  resignFirstResponder];
 }
 
 #pragma mark tableView
@@ -67,5 +67,13 @@
 - (IBAction)sendClick:(UIButton *)sender {
     
 }
+- (void)textViewDidChange:(UITextView *)textView{
+    if (self.ViewHeightContraint.constant>200) {
+        self.ViewHeightContraint.constant=201;
+    }
+    else{
+        self.ViewHeightContraint.constant=40+textView.contentSize.height-30;
+    }
 
+}
 @end

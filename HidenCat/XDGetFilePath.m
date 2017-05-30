@@ -15,7 +15,6 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentPath = [paths objectAtIndex:0];
-    
     NSDate *date = [NSDate date];
     //获取当前时间
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -28,21 +27,21 @@
     NSString *fileName = [NSString stringWithFormat:@"%@.%@",curretDateAndTime,suffix];
     //指定文件存储路径
     NSString *filePath = [documentPath stringByAppendingPathComponent:fileName];
-    
     return filePath;
 }
-
+//获取视屏截图
 + (UIImage *)getVideoThumbnailWithFilePath:(NSString *)filePath
 {
-    MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:filePath]];
-    moviePlayer.shouldAutoplay = NO;
-   UIImage *image = [moviePlayer thumbnailImageAtTime:1.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
-  [moviePlayer requestThumbnailImagesAtTimes:@[@(1.0)] timeOption:MPMovieTimeOptionNearestKeyFrame];
-    [[NSNotificationCenter defaultCenter] addObserver:self                                             selector:@selector(thumImageGet:)  name:MPMoviePlayerThumbnailImageRequestDidFinishNotification                                             object:nil];
+    NSURL *url=[[NSURL alloc]initFileURLWithPath:filePath];
+    AVURLAsset *urlAsset = [[AVURLAsset alloc] initWithURL:url options:nil];
+    AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:urlAsset];
+    imageGenerator.appliesPreferredTrackTransform = YES;    // 截图的时候调整到正确的方向
+    CMTime time = CMTimeMakeWithSeconds(1.0, 30);   // 1.0为截取视频1.0秒处的图片，30为每秒30帧
+    CGImageRef cgImage = [imageGenerator copyCGImageAtTime:time actualTime:nil error:nil];
+    UIImage *image = [UIImage imageWithCGImage:cgImage];
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+
     return image;
-}
-- (void)thumImageGet:(NSNotification *)noti{
-    UIImage *thumImage = [[noti userInfo] objectForKey:MPMoviePlayerThumbnailImageKey];  UIImageWriteToSavedPhotosAlbum(thumImage, nil, nil, nil);
 }
 + (UIImage *)getImage:(NSString *)filePath
 {

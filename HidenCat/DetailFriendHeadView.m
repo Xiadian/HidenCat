@@ -11,7 +11,9 @@
 #import "DetailFriendHeadView.h"
 
 @implementation DetailFriendHeadView
-
+- (IBAction)foucusClick:(UIButton *)sender {
+    [self.delegate foucousClick:sender];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

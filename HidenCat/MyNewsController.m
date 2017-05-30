@@ -1,6 +1,4 @@
 
-
-
 //
 //  MyNewsController.m
 //  HidenCat
@@ -58,8 +56,6 @@
         // 拿到当前的下拉刷新控件，结束刷新状态
         [self.rightTable.mj_header endRefreshing];
     });
-    
-    
 }
 -(void)saleClick:(UITapGestureRecognizer *)label{
     [UIView animateWithDuration:0.5 animations:^{
@@ -70,7 +66,6 @@
 -(void)buyClick:(UITapGestureRecognizer *)label{
     [UIView animateWithDuration:0.5 animations:^{
         self.scrollView.contentOffset=CGPointMake(XDSW, 0);
-        
     }];
 }
 -(void)getTableView{
@@ -184,7 +179,6 @@
     return 100;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
     UIView *vv=[[UIView alloc]init];
     vv.backgroundColor=[UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1];
     return vv;
@@ -193,7 +187,6 @@
     if (scrollView.contentOffset.x>=[UIScreen mainScreen].bounds.size.width) {
         self.notification.textColor=[UIColor redColor];
         self.systemNew.textColor=[UIColor blackColor];
-        
     }
     else if(scrollView.contentOffset.x==0){
         self.notification.textColor=[UIColor blackColor];
@@ -204,8 +197,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 /*
 #pragma mark - Navigation
 

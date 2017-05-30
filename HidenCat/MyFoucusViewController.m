@@ -9,6 +9,7 @@
 #import "MyFoucusViewController.h"
 #import "MyFoucusTableViewCell.h"
 #import "DetailFriendViewController.h"
+#import "UIImage+GradientColor.h"
 @interface MyFoucusViewController ()
 
 @end
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title=@"我的关注";
+    self.view.backgroundColor=[UIColor whiteColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyFoucusTableViewCell" bundle:nil] forCellReuseIdentifier:@"xd"];
 }
 - (void)didReceiveMemoryWarning {
@@ -30,7 +32,8 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MyFoucusTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"xd" forIndexPath:indexPath];
-    return cell;
+    
+        return cell;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;

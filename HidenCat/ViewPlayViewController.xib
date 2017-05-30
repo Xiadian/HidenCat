@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,10 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewPlayViewController">
             <connections>
-                <outlet property="mainScrollView" destination="aFp-QD-r7l" id="fV6-I1-tRX"/>
+                <outlet property="contentText" destination="Ezr-js-aUg" id="Afo-rd-p9M"/>
+                <outlet property="mainScrollView" destination="aFp-QD-r7l" id="dm4-s0-Enc"/>
                 <outlet property="midScrollView" destination="z1h-fA-go6" id="wjW-v8-p1u"/>
                 <outlet property="saleNoForYes" destination="rGh-yE-D4p" id="Zdm-Rw-aNy"/>
                 <outlet property="saleView" destination="Ylw-Ih-80y" id="mIG-PQ-Nfr"/>
+                <outlet property="titleText" destination="bOE-zA-9Zc" id="EuR-aH-CIR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -281,6 +283,7 @@
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="Sk6-cz-VMh" firstAttribute="width" secondItem="aFp-QD-r7l" secondAttribute="width" id="aG7-kF-K90"/>
                         <constraint firstItem="Sk6-cz-VMh" firstAttribute="leading" secondItem="aFp-QD-r7l" secondAttribute="leading" id="fGi-7K-KqU"/>
                         <constraint firstItem="Sk6-cz-VMh" firstAttribute="height" secondItem="aFp-QD-r7l" secondAttribute="height" constant="100" id="fW7-Yd-chw"/>
                         <constraint firstAttribute="trailing" secondItem="Sk6-cz-VMh" secondAttribute="trailing" id="hHk-GS-KcO"/>
@@ -291,6 +294,7 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="fW7-Yd-chw"/>
+                            <exclude reference="y9J-Gq-KUE"/>
                         </mask>
                     </variation>
                 </scrollView>
@@ -298,12 +302,18 @@
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="aFp-QD-r7l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GcP-KQ-ZjV"/>
+                <constraint firstItem="aFp-QD-r7l" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="JQe-of-dyM"/>
                 <constraint firstAttribute="bottom" secondItem="aFp-QD-r7l" secondAttribute="bottom" id="X0a-Rh-NjH"/>
                 <constraint firstAttribute="trailing" secondItem="aFp-QD-r7l" secondAttribute="trailing" id="Xi1-qK-6JJ"/>
                 <constraint firstItem="aFp-QD-r7l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lxb-J0-d6N"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="204" y="249"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="JQe-of-dyM"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="167" y="138"/>
         </view>
     </objects>
     <resources>

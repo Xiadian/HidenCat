@@ -9,7 +9,8 @@
 #import "DetailBaseViewController.h"
 
 @interface PhoneChangeViewController : DetailBaseViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *textPhone;
 @property (weak, nonatomic) IBOutlet UITextField *textDentify;
-
+@property(nonatomic,copy)NSString *registTitle;
 @end

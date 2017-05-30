@@ -39,7 +39,6 @@ static BDImagePicker *bdImagePickerInstance = nil;
     _allowsEditing = allowsEditing;
     
     UIActionSheet *sheet = nil;
-    
   //  if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         sheet = [[UIActionSheet alloc] initWithTitle:nil
                                             delegate:self

@@ -39,31 +39,19 @@
      [self.tableView registerNib:[UINib nibWithNibName:@"MySettingTableViewCell" bundle:nil] forCellReuseIdentifier:@"xd"];
     [self.view addSubview:self.tableView];
     
-self.navigationItem.title=@"修改资料";
+    self.navigationItem.title=@"修改资料";
     UIBarButtonItem *btnBack=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"fanhui"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     btnBack.imageInsets=UIEdgeInsetsMake(8, -5, 8, 21);
     self.navigationItem.leftBarButtonItem=btnBack;
     self.tableView.bounces=NO;
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 -(void)back{
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
@@ -77,7 +65,6 @@ self.navigationItem.title=@"修改资料";
             return 60;
             break;
     }
-
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         MySettingTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"xd" forIndexPath:indexPath];
@@ -183,6 +170,7 @@ self.navigationItem.title=@"修改资料";
         case 6:
         {//修改绑定手机
             PhoneChangeViewController *phone=[[PhoneChangeViewController alloc]init];
+            phone.registTitle=@"修改绑定手机";
             [self.navigationController pushViewController:phone animated:YES];
             
         }

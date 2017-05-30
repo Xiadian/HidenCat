@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -121,14 +121,6 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWx-zp-CSV">
-                                <rect key="frame" x="246" y="17" width="50" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="C9a-9U-7GX"/>
-                                    <constraint firstAttribute="height" constant="25" id="gTt-Bi-FzM"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="guanzhu"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小猫咪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNy-sM-xya">
                                 <rect key="frame" x="57" y="5" width="51" height="30"/>
                                 <constraints>
@@ -138,6 +130,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWx-zp-CSV">
+                                <rect key="frame" x="228" y="15" width="68" height="32"/>
+                                <color key="backgroundColor" red="0.78969562308868502" green="0.56779195336391441" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="C9a-9U-7GX"/>
+                                    <constraint firstAttribute="height" constant="32" id="gTt-Bi-FzM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="+关注">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="focus:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vaN-v5-uq2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -145,7 +152,7 @@
                             <constraint firstItem="oXz-Ug-ukc" firstAttribute="top" secondItem="uNy-sM-xya" secondAttribute="bottom" id="CTL-HO-CCW"/>
                             <constraint firstAttribute="trailing" secondItem="CWx-zp-CSV" secondAttribute="trailing" constant="8" id="Ff3-dX-Pfd"/>
                             <constraint firstItem="811-DH-2Sh" firstAttribute="leading" secondItem="uNy-sM-xya" secondAttribute="trailing" constant="2" id="GD1-JU-Ody"/>
-                            <constraint firstAttribute="bottom" secondItem="CWx-zp-CSV" secondAttribute="bottom" constant="18" id="Har-fb-8we"/>
+                            <constraint firstAttribute="bottom" secondItem="CWx-zp-CSV" secondAttribute="bottom" constant="13" id="Har-fb-8we"/>
                             <constraint firstItem="811-DH-2Sh" firstAttribute="top" secondItem="R1J-Ce-TKY" secondAttribute="top" constant="15" id="XGG-gW-CCg"/>
                             <constraint firstItem="96a-lh-XK3" firstAttribute="leading" secondItem="oXz-Ug-ukc" secondAttribute="trailing" constant="2" id="a1r-oT-7ZA"/>
                             <constraint firstItem="5ji-X7-Lzc" firstAttribute="leading" secondItem="R1J-Ce-TKY" secondAttribute="leading" constant="5" id="c6K-JY-Ger"/>
@@ -285,6 +292,7 @@
             <connections>
                 <outlet property="TopbackView" destination="A4d-ZY-W2v" id="Caf-gA-EHF"/>
                 <outlet property="buttomView" destination="fw4-Ce-HT8" id="t3f-nB-K1Q"/>
+                <outlet property="focusBtn" destination="CWx-zp-CSV" id="MPK-pd-eVu"/>
                 <outlet property="iconBtn" destination="5ji-X7-Lzc" id="tVu-0J-LmH"/>
                 <outlet property="imgeView" destination="f6k-Xm-ZeK" id="vkX-lT-NgB"/>
                 <outlet property="label" destination="rc2-TD-wQS" id="zYB-7R-nV1"/>
@@ -292,13 +300,12 @@
                 <outlet property="playView" destination="UjP-1L-Dfq" id="thU-3V-tWb"/>
                 <outlet property="topview" destination="R1J-Ce-TKY" id="qwz-na-SUS"/>
             </connections>
-            <point key="canvasLocation" x="123" y="201"/>
+            <point key="canvasLocation" x="223" y="42"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="cang_zan" width="35" height="36"/>
         <image name="dingwei0_03" width="42" height="50"/>
-        <image name="guanzhu" width="67" height="29"/>
         <image name="media_play" width="94" height="95"/>
         <image name="message_no" width="42" height="36"/>
         <image name="v3" width="17" height="13"/>

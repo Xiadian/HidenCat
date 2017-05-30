@@ -10,8 +10,10 @@
 
 @interface CommentViewController : DetailBaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UITextField *commetTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ViewHeightContraint;
 @property (weak, nonatomic) IBOutlet UIButton *sendBtn;
 
+@property (weak, nonatomic) IBOutlet UITextView *commentTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttomConstraint;
+
 @end

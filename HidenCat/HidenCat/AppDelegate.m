@@ -92,8 +92,6 @@
                  break;
          }
      }];
-
-
 }
 -(void)conFig{
     // 设置导航栏title颜色w
