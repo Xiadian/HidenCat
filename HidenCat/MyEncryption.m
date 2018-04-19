@@ -52,6 +52,7 @@
     }
     return dic;
 }
+
 + (NSString*)dictionaryToJson:(NSDictionary *)dic
 {
     NSError *parseError = nil;

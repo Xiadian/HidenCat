@@ -24,7 +24,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden = NO;
     self.navigationItem.title=@"我的发布";
 }
 - (IBAction)newPlay:(UIButton *)sender {

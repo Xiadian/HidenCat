@@ -1554,7 +1554,7 @@
 				TargetAttributes = {
 					5486D7421C9FBCE300BCCBA0 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 4575NUE242;
+						DevelopmentTeam = GH3WD8CYKW;
 					};
 					5486D75B1C9FBCE300BCCBA0 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1971,6 +1971,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GH3WD8CYKW;
 				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = HidenCat/Info.plist;
@@ -1989,6 +1990,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GH3WD8CYKW;
 				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = HidenCat/Info.plist;
